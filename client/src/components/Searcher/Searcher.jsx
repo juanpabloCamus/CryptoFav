@@ -5,7 +5,7 @@ import { CryptoCard } from '../CryptoCard/CryptoCard';
 
 //const requiredCryptos = ['btc', 'eth', 'ltc', 'trx']
 
-function Searcher() {
+function Searcher({openDetail, closeSearcher}) {
 
     const [initialData, setInitalData] = useState([])
 
@@ -26,6 +26,8 @@ function Searcher() {
                             key={c.coin}
                             name={c.coin}
                             logo={c.logo}
+                            openDetail={openDetail}
+                            closeSearcher={closeSearcher}
                         />
                     )
                 )

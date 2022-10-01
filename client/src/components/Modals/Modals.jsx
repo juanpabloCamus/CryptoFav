@@ -14,11 +14,11 @@ export const Modals = () => {
         <h2>Modales</h2>
         <button onClick={openCryptoCard}>Modal 1 (CryptoCardDetail)</button>
         <Modal isOpen={isOpenCryptoCard} closeModal={closeCryptoCard}>
-           <CryptoCardDetail/>
+            <CryptoCardDetail/>
         </Modal>
         <button onClick={openSearcher}>Modal 2 (Searcher)</button>
         <Modal isOpen={isOpenSeacrher} closeModal={closeSearcher}>
-            <Searcher/>
+            <Searcher closeSearcher={closeSearcher} openDetail={openCryptoCard}/>
         </Modal>
     </div>
     )
