@@ -1,11 +1,15 @@
 import './App.css';
-import NavBar from './components/NavBar';
+import { Modals } from './components/Modals/Modals';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
   return (
     <div className="App">
       <NavBar/>
       <button>+</button>
+      <Modals/>
+      <h1>Favoritas</h1>
+
     </div>
   );
 }
