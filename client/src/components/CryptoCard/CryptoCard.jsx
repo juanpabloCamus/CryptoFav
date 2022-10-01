@@ -1,8 +1,9 @@
 import './CryptoCard.css';
 
-export const CryptoCard = ({openDetail, closeSearcher, name, logo}) => {
+export const CryptoCard = ({openDetail, closeSearcher, setDetail, ticker, name, logo}) => {
 
     const handleClick = () => {
+        setDetail(ticker)
         closeSearcher()
         openDetail()
     }
