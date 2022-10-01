@@ -1,8 +1,8 @@
 import {useModal} from '../../hooks/useModal.js';
 import { Modal } from './Modal.jsx';
 import './Modals.css';
-//import { CryptoCard } from '../CryptoCard/CryptoCard.jsx'
 import Searcher from '../Searcher/Searcher.jsx';
+import CryptoCardDetail from '../CryptoCard/CryptoCardDetail.jsx';
 
 export const Modals = () => {
 
@@ -12,9 +12,9 @@ export const Modals = () => {
     return(
     <div>
         <h2>Modales</h2>
-        <button onClick={openCryptoCard}>Modal 1 (CryptoCard)</button>
+        <button onClick={openCryptoCard}>Modal 1 (CryptoCardDetail)</button>
         <Modal isOpen={isOpenCryptoCard} closeModal={closeCryptoCard}>
-            {/* <CryptoCard/> */}
+           <CryptoCardDetail/>
         </Modal>
         <button onClick={openSearcher}>Modal 2 (Searcher)</button>
         <Modal isOpen={isOpenSeacrher} closeModal={closeSearcher}>

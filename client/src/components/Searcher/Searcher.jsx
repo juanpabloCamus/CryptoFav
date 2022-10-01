@@ -19,14 +19,13 @@ function Searcher() {
 
     return (
         <div className='searcher-container'>
-            <input></input>
             {
                 initialData.map(c => 
                     (
                         <CryptoCard
+                            key={c.coin}
                             name={c.coin}
                             logo={c.logo}
-                            place='searcher'
                         />
                     )
                 )

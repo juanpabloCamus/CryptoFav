@@ -1,0 +1,12 @@
+.crypto-card-container{
+    display: flex;
+    gap: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.crypto-card-logo{
+    max-width: 50px;
+    max-height: 50px;
+}

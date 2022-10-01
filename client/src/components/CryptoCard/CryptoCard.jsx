@@ -1,7 +1,9 @@
+import './CryptoCard.css';
+
 export const CryptoCard = ({name, logo, place}) => {
     return (
-        <div style={{display: 'flex', gap:'5px'}}>
-            <img style={{maxWidth:'50px', maxHeight:'50px'}} src={logo}></img>
+        <div className="crypto-card-container">
+            <img className='crypto-card-logo'src={logo}></img>
             <h1>{name}</h1>
         </div>
     )
