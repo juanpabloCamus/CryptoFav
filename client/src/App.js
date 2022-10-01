@@ -6,10 +6,8 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      <button>+</button>
       <Modals/>
       <h1>Favoritas</h1>
-
     </div>
   );
 }
