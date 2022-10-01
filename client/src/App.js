@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import './App.css';
 import { Modals } from './components/Modals/Modals';
 import NavBar from './components/NavBar/NavBar';
 
 function App() {
+
+  const [favorites, setFavorites] = useState([])
+
   return (
     <div className="App">
       <NavBar/>

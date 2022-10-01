@@ -18,7 +18,13 @@ function CryptoCardDetail({detail}) {
 
     return (
         <div>
-            <h1>{currentCrypto.coin}</h1>
+            <img src={currentCrypto.logo} className='currentcrypto-logo'></img>
+            <h1>{currentCrypto.coin} ({currentCrypto.ticker})</h1>
+            <span>Price: {currentCrypto.prices?.USD}</span>
+            <form>
+                <input placeholder='Cantidad'></input>
+                <button type='submit'>Añadir</button>
+            </form>
         </div>
     );
 }
