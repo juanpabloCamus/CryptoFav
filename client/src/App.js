@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Favorites from './components/Favorites/Favorites';
 import { Modals } from './components/Modals/Modals';
 import NavBar from './components/NavBar/NavBar';
 import { useModal } from './hooks/useModal';
 import heart from './assets/heart.png'
-import Loader from './components/Loader/Loader';
 
 function App() {
 
@@ -68,6 +67,9 @@ function App() {
         />
         <div className='button-container'>
           <button className='search-button' onClick={openSearcher}>+</button>
+        </div>
+        <div className='footer-container'>
+            <h3>Desarollado por Juan Pablo Camus para 42i</h3>
         </div>
       </div>
   );

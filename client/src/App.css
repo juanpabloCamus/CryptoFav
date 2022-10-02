@@ -69,3 +69,15 @@
     border-radius: 10px;
     cursor: pointer;
 }
+
+.footer-container {
+    height:70px;
+    line-height:50px;
+    background:black;
+    color:white;
+    text-align:center;
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+}
