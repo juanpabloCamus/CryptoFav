@@ -12,7 +12,7 @@ function Favorites({
     
     useEffect(()=>{
         let currentFavs = JSON.parse(localStorage.getItem('Favorites'));
-        currentFavs ? setFavorites(currentFavs) : setFavorites(favorites);
+        currentFavs ? setFavorites(currentFavs) : console.log('object');
     }, [])
 
     if(favorites.length === 0) return <h1>No hay favoritas</h1>

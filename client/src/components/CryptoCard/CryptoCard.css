@@ -1,11 +1,17 @@
 .crypto-card-container{
     display: flex;
     gap: 5px;
-    border: 1px solid black;
-    padding: 5px;
+    padding: 8px 20px;
     cursor: pointer;
     align-items: center;
     justify-content: space-between;
+    border-radius: 10px;
+    background-color: aliceblue;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.124);
+}
+
+.crypto-card-container:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 3px 10px 0 rgba(0, 0, 0, 0.124);
 }
 
 .crypto-card-logo{
@@ -21,12 +27,16 @@
 
 
 .delete-button{
-    border: 1px solid rgb(168, 166, 166);
-    background-color: white;
-    border-radius: 50px;
-    padding: 10px;
-    margin: 20px;
+    border: none;
     cursor: pointer;
-    font-weight: 500;
-    color: rgb(251, 84, 84);
+    background-color: aliceblue;
+}
+
+.delete-button img{
+    max-width: 30px;
+}
+
+.crypto-card-container h5{
+    font-size: 16px;
+    margin-right: 30px;
 }

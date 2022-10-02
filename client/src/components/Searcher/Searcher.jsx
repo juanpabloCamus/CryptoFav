@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Searcher.css';
 import axios from 'axios';
 import { CryptoCard } from '../CryptoCard/CryptoCard';
+import searchLogo from '../../assets/search.png'
 
 const requiredCryptos = ['btc', 'eth', 'ltc', 'trx']
 
@@ -42,8 +43,10 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
     return (
         <div className='searcher-container'>
             <form className='form' onSubmit={handleSearch}>
-                <input onChange={handleChange} value={search}></input>
-                <button type='submit'>Buscar</button>
+                <input onChange={handleChange} value={search} placeholder='Example: Btc'></input>
+                <button type='submit'>
+                    <img className='search-logo' src={searchLogo} alt='search'></img>
+                </button>
             </form>
             {error ? <h4>Busqueda invalida</h4> : null}
             <div className='cards-container'>

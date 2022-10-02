@@ -1,4 +1,6 @@
 import './CryptoCard.css';
+import trash from '../../assets/trash.png';
+import Swal from 'sweetalert2';
 
 export const CryptoCard = (
     {
@@ -28,10 +30,17 @@ export const CryptoCard = (
         }    
     }
 
-    const handleDelete = () => {
-        const filterFav = favorites.filter(c =>  c.coin !== name);
-        setFavorites(filterFav)
-        localStorage.setItem('Favorites', JSON.stringify(filterFav))
+    const handleDelete = async () => {
+        const res = await Swal.fire({
+            text:`Estas seguro que quieres eliminar ${name} de tus favoritos?`,
+            showCancelButton: true,
+        });
+        if (res.isConfirmed) {
+            const filterFav = favorites.filter(c =>  c.coin !== name);
+            setFavorites(filterFav)
+            localStorage.setItem('Favorites', JSON.stringify(filterFav))
+        }
+        return
     }
     
     return (
@@ -43,7 +52,7 @@ export const CryptoCard = (
                         <img className='crypto-card-logo'src={logo}></img>
                         <h1>{name}</h1>
                     </div>
-                    <h5>{price}USD</h5>
+                    <h5>${price} USD</h5>
                 </div>
                 :
                 <div onClick={handleClick} className="crypto-card-container">
@@ -51,8 +60,10 @@ export const CryptoCard = (
                         <img className='crypto-card-logo'src={logo}></img>
                         <h1>{name}</h1>
                     </div>
-                    <h5>{price}USD</h5>
-                    <button name='delete' className='delete-button' onClick={handleDelete}>X</button>
+                    <h5>${price} USD</h5>
+                    <button name='delete' className='delete-button' onClick={handleDelete}>
+                        <img name='delete' src={trash} alt='trash'></img>
+                    </button>
                 </div>
             }
         </>
