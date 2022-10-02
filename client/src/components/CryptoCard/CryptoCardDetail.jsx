@@ -16,8 +16,6 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
                 if (isFavorite.length === 0) {
                     setCurrentCrypto(r.data)
                 } else {
-                    console.log('entre');
-                    console.log(isFavorite[0].amount);
                     setCurrentCrypto({...r.data, amount: isFavorite[0].amount})
                 }
             })
@@ -34,11 +32,13 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
     const handleAddFavorite = e => {
         e.preventDefault()
         let newFav = {...currentCrypto, amount}
+        let updateFavs = favorites.filter(f => f.ticker !== detail);
+        updateFavs = [...updateFavs, newFav]
         setFavorites(
-            [...favorites, newFav]
+            updateFavs
         )
         setCurrentCrypto(newFav)
-        localStorage.setItem('Favorites', JSON.stringify([...favorites, newFav]))
+        localStorage.setItem('Favorites', JSON.stringify(updateFavs))
     }
 
     if (!currentCrypto.coin) return <h1>Loading...</h1>
@@ -52,7 +52,7 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
                 currentCrypto.amount ? <span>Cantidad: {currentCrypto.amount} </span> : null
             }
             <form onSubmit={handleAddFavorite}>
-                <input onChange={handleChange} type='number' placeholder='Cantidad'></input>
+                <input onChange={handleChange} type='number' placeholder={`Cuanto ${currentCrypto.coin} tienes?`}></input>
                 <button type='submit'>Añadir</button>
             </form>
         </div>
