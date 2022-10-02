@@ -24,7 +24,7 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
         e.preventDefault()
         let newFav = {...currentCrypto, amount}
         setFavorites(
-            [newFav]
+            [...favorites, newFav]
         )
     }
 

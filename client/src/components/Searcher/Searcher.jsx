@@ -55,6 +55,7 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
                             ticker={c.ticker}
                             name={c.coin}
                             logo={c.logo}
+                            price={c.prices['USD']}
                             openDetail={openDetail}
                             closeSearcher={closeSearcher}
                             setDetail={setDetail}

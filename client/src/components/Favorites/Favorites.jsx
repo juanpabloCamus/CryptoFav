@@ -4,7 +4,7 @@ import './Favorites.css'
 function Favorites({favorites}) {
     
     if(favorites.length === 0) return <h1>No hay favs</h1>
-    console.log(favorites);
+    
     return (
         <div className="favorites-container">
             {
@@ -14,6 +14,7 @@ function Favorites({favorites}) {
                         ticker={f.ticker}
                         name={f.coin}
                         logo={f.logo}
+                        price={f.prices['USD']}
                     />
                 ))
             }
