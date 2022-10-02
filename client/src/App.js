@@ -13,7 +13,7 @@ function App() {
       <NavBar/>
       <Modals favorites={favorites} setFavorites={setFavorites}/>
       <h1>Favoritas</h1>
-      <Favorites favorites={favorites}/>
+      <Favorites favorites={favorites} setFavorites={setFavorites}/>
     </div>
   );
 }

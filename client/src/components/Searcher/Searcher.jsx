@@ -51,6 +51,7 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
                 initialData.map(c => 
                     (
                         <CryptoCard
+                            context = 'searcher'
                             key={c.coin}
                             ticker={c.ticker}
                             name={c.coin}
