@@ -23,7 +23,9 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
     const handleAddFavorite = e => {
         e.preventDefault()
         let newFav = {...currentCrypto, amount}
-        setFavorites(...favorites, newFav)
+        setFavorites(
+            [newFav]
+        )
     }
 
     if (currentCrypto === {}) return <h1>Loading...</h1>
