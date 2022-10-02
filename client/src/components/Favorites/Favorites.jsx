@@ -1,7 +1,14 @@
 import { CryptoCard } from '../CryptoCard/CryptoCard';
 import './Favorites.css'
 
-function Favorites({favorites, setFavorites}) {
+function Favorites({
+    favorites,
+    setFavorites,
+    openCryptoCard,
+    detail,
+    setDetail 
+}) 
+{
     
     if(favorites.length === 0) return <h1>No hay favoritas</h1>
     
@@ -18,6 +25,9 @@ function Favorites({favorites, setFavorites}) {
                         price={f.prices['USD']}
                         setFavorites={setFavorites}
                         favorites = {favorites}
+                        openDetail = {openCryptoCard}
+                        detail = {detail}
+                        setDetail = {setDetail}
                     />
                 ))
             }

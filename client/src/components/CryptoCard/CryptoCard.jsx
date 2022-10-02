@@ -1,11 +1,29 @@
 import './CryptoCard.css';
 
-export const CryptoCard = ({openDetail, closeSearcher, setDetail, setFavorites, favorites, ticker, name, logo, price, context}) => {
+export const CryptoCard = (
+    {
+        openDetail,
+        closeSearcher,
+        setDetail,
+        setFavorites,
+        favorites,
+        ticker,
+        name,
+        logo,
+        price,
+        context
+    }) => {
 
     const handleClick = () => {
-        setDetail(ticker)
-        closeSearcher()
-        openDetail()
+        if (context === 'searcher') {
+            setDetail(ticker)
+            closeSearcher()
+            openDetail()
+        }
+        else {
+            setDetail(ticker)
+            openDetail() 
+        }    
     }
 
     const handleDelete = () => {
@@ -25,7 +43,7 @@ export const CryptoCard = ({openDetail, closeSearcher, setDetail, setFavorites, 
                     <h5>{price}USD</h5>
                 </div>
                 :
-                <div className="crypto-card-container">
+                <div onClick={handleClick} className="crypto-card-container">
                     <div className='title'>   
                         <img className='crypto-card-logo'src={logo}></img>
                         <h1>{name}</h1>
