@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { CryptoCard } from '../CryptoCard/CryptoCard';
 import './Favorites.css'
 
@@ -7,9 +8,13 @@ function Favorites({
     openCryptoCard,
     detail,
     setDetail 
-}) 
-{
+}) {
     
+    useEffect(()=>{
+        let currentFavs = JSON.parse(localStorage.getItem('Favorites'));
+        currentFavs ? setFavorites(currentFavs) : setFavorites(favorites);
+    }, [])
+
     if(favorites.length === 0) return <h1>No hay favoritas</h1>
     
     return (
