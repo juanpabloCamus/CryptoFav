@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './CryptoCardDetail.css';
 import axios from 'axios';
+import Loader from '../Loader/Loader.jsx'
 
 function CryptoCardDetail({detail, setFavorites, favorites}) {
 
@@ -41,7 +42,7 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
         localStorage.setItem('Favorites', JSON.stringify(updateFavs))
     }
 
-    if (!currentCrypto.coin) return <h1>Loading...</h1>
+    if (!currentCrypto.coin) return <Loader></Loader>
 
     return (
         <div className='carddetail-container' >

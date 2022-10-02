@@ -5,6 +5,7 @@ import { Modals } from './components/Modals/Modals';
 import NavBar from './components/NavBar/NavBar';
 import { useModal } from './hooks/useModal';
 import heart from './assets/heart.png'
+import Loader from './components/Loader/Loader';
 
 function App() {
 
