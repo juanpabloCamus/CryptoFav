@@ -15,7 +15,13 @@ function Favorites({
         currentFavs ? setFavorites(currentFavs) : console.log('object');
     }, [])
 
-    if(favorites.length === 0) return <h1>No hay favoritas</h1>
+    if(favorites.length === 0) {
+        return (
+            <div className='nofavs-container'>
+                <p>No has agregado Cryptos aun! Pulsa en '+' y comienza a listarlas!</p>
+            </div>
+        )
+    }
     
     return (
         <div className="favorites-container">

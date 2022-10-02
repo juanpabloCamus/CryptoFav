@@ -28,29 +28,20 @@ function App() {
         detail = {detail}
         setDetail = {setDetail}
       />
-      {
-        favorites.length === 0 ? 
-        <div className='nofavs-container'>
-          <p>No has agregado Cryptos aun! Pulsa en '+' y comienza a listarlas!</p>
-        </div>
-        :
-        <>
-          <div className='title-container'>
+        <div className='title-container'>
           <h1 className='favorites-title'>Favoritas</h1>
           <img className='heart' src={heart} alt='heart'></img>
-          </div>
-          <Favorites 
+        </div>
+        <Favorites 
           openCryptoCard={openCryptoCard} 
           favorites={favorites} 
           setFavorites={setFavorites}
           detail = {detail}
           setDetail = {setDetail}
-          />
-        </>
-      }
-      <div className='button-container'>
-              <button className='search-button' onClick={openSearcher}>+</button>
-          </div>
+        />
+        <div className='button-container'>
+          <button className='search-button' onClick={openSearcher}>+</button>
+        </div>
       </div>
   );
 }
