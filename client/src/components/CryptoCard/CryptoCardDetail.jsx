@@ -3,7 +3,7 @@ import './CryptoCardDetail.css';
 import axios from 'axios';
 import Loader from '../Loader/Loader.jsx'
 
-function CryptoCardDetail({detail, setFavorites, favorites}) {
+function CryptoCardDetail({currency, detail, setFavorites, favorites}) {
 
     const [currentCrypto, setCurrentCrypto] = useState({})
     
@@ -48,7 +48,7 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
         <div className='carddetail-container' >
             <img src={currentCrypto.logo} className='currentcrypto-logo'></img>
             <h1>{currentCrypto.coin} ({currentCrypto.ticker})</h1>
-            <span className='span-price'>${currentCrypto.prices?.USD} USD</span>
+            <span className='span-price'>${currentCrypto.prices[currency]} {currency}</span>
             <form className='amount-form' onSubmit={handleAddFavorite}>
                 <input onChange={handleChange} type='number' step="any" placeholder={`Cuanto ${currentCrypto.coin} tienes?`}></input>
                 <button type='submit'>Añadir</button>

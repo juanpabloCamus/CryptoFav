@@ -6,12 +6,11 @@ import searchLogo from '../../assets/search.png'
 
 const requiredCryptos = ['btc', 'eth', 'ltc', 'trx']
 
-function Searcher({openDetail, closeSearcher, setDetail}) {
+function Searcher({openDetail, closeSearcher, setDetail, currency}) {
 
     const [initialData, setInitalData] = useState([]);
     const [search, setSearch] = useState('');
-    const [error, setError] = useState(false);
-
+    
     useEffect(() => {
         async function getData() {
             if (initialData.length < 4) {
@@ -23,21 +22,14 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
             }
         }
         getData()
-    }, [error])
+    }, [])
 
     const handleChange = (e) => {
         setSearch(e.target.value)
     }
 
     const handleSearch = async (e) => {
-        e.preventDefault()
-        try{
-            let { data } = await axios.get(`https://api.cryptapi.io/${search}/info/`)
-            setInitalData([data])
-            setError(false)
-        }catch(e){
-            setError(true)
-        }
+        
     }
 
     return (
@@ -48,7 +40,6 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
                     <img className='search-logo' src={searchLogo} alt='search'></img>
                 </button>
             </form>
-            {error ? <h4>Busqueda invalida</h4> : null}
             <div className='cards-container'>
                 {
                     initialData.map(c => 
@@ -59,10 +50,11 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
                                 ticker={c.ticker}
                                 name={c.coin}
                                 logo={c.logo}
-                                price={c.prices['USD']}
+                                price={c.prices[currency]}
                                 openDetail={openDetail}
                                 closeSearcher={closeSearcher}
                                 setDetail={setDetail}
+                                currency = {currency}
                             />
                         )
                     )

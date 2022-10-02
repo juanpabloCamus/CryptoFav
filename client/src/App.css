@@ -1,15 +1,11 @@
 .title-container{
     display: flex;
-    background-color: aliceblue;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 20px;
-    max-width: 500px;
-
+    margin-top: 10px;
 }
 
 .favorites-title{

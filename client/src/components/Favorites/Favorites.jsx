@@ -7,12 +7,13 @@ function Favorites({
     setFavorites,
     openCryptoCard,
     detail,
-    setDetail 
+    setDetail,
+    currency
 }) {
     
     useEffect(()=>{
         let currentFavs = JSON.parse(localStorage.getItem('Favorites'));
-        currentFavs ? setFavorites(currentFavs) : console.log('object');
+        currentFavs ? setFavorites(currentFavs) : console.log('');
     }, [])
 
     if(favorites.length === 0) {
@@ -33,12 +34,13 @@ function Favorites({
                         ticker={f.ticker}
                         name={f.coin}
                         logo={f.logo}
-                        price={f.prices['USD']}
+                        price={f.prices[currency]}
                         setFavorites={setFavorites}
                         favorites = {favorites}
                         openDetail = {openCryptoCard}
                         detail = {detail}
                         setDetail = {setDetail}
+                        currency = {currency}
                     />
                 ))
             }

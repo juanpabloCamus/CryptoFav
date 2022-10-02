@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Favorites from './components/Favorites/Favorites';
 import { Modals } from './components/Modals/Modals';
@@ -9,10 +9,17 @@ import Loader from './components/Loader/Loader';
 
 function App() {
 
+  const currencies = [ 'USD', 'EUR', 'GBP', 'CAD', 'JPY', 'AED', 'DKK', 'BRL', 'CNY', 'HKD', 'INR', 'MXN', 'UGX', 'PLN', 'PHP', 'CZK', 'HUF', 'BGN', 'RON', 'LKR', 'TRY', 'ZAR', 'RUB' ]
+
   const [favorites, setFavorites] = useState([])
   const [isOpenCryptoCard, openCryptoCard, closeCryptoCard] = useModal(false)
   const [isOpenSeacrher, openSearcher, closeSearcher] = useModal(false)
   const [detail, setDetail] = useState('')
+  const [currency, setCurrency] = useState('USD');
+
+  const handleChange = (e) => {
+    setCurrency(e.target.value)
+  }
   
   return (
     <div className="App">
@@ -28,17 +35,35 @@ function App() {
         closeSearcher = {closeSearcher}
         detail = {detail}
         setDetail = {setDetail}
+        currency = {currency}
       />
-        <div className='title-container'>
-          <h1 className='favorites-title'>Favoritas</h1>
-          <img className='heart' src={heart} alt='heart'></img>
-        </div>
+      {
+        favorites.length === 0 
+        ? null 
+        :
+        <>
+          <div className='title-container'>
+            <h1 className='favorites-title'>Mis Criptomonedas</h1>
+            <img className='heart' src={heart} alt='heart'></img>
+          </div>
+          <div>
+            <select onChange={handleChange}>
+              {
+                currencies.map(c => (
+                  <option value={c}>{c}</option>
+                ))
+              }
+            </select>
+          </div>
+        </>
+      }
         <Favorites 
           openCryptoCard={openCryptoCard} 
           favorites={favorites} 
           setFavorites={setFavorites}
           detail = {detail}
           setDetail = {setDetail}
+          currency = {currency}
         />
         <div className='button-container'>
           <button className='search-button' onClick={openSearcher}>+</button>

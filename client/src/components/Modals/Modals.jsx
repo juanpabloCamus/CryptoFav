@@ -15,16 +15,17 @@ export const Modals = (
         closeSearcher,
         openCryptoCard,
         detail,
-        setDetail
+        setDetail,
+        currency
     }) => {
 
     return(
     <div>
         <Modal isOpen={isOpenCryptoCard} closeModal={closeCryptoCard}>
-            <CryptoCardDetail favorites={favorites} setFavorites={setFavorites} detail={detail}/>
+            <CryptoCardDetail currency={currency} favorites={favorites} setFavorites={setFavorites} detail={detail}/>
         </Modal>
         <Modal isOpen={isOpenSeacrher} closeModal={closeSearcher}>
-            <Searcher setDetail={setDetail} closeSearcher={closeSearcher} openDetail={openCryptoCard}/>
+            <Searcher currency={currency} setDetail={setDetail} closeSearcher={closeSearcher} openDetail={openCryptoCard}/>
         </Modal>
     </div>
     )

@@ -13,7 +13,8 @@ export const CryptoCard = (
         name,
         logo,
         price,
-        context
+        context,
+        currency
     }) => {
 
     const handleClick = (e) => {
@@ -52,7 +53,7 @@ export const CryptoCard = (
                         <img className='crypto-card-logo'src={logo}></img>
                         <h1>{name}</h1>
                     </div>
-                    <h5>${price} USD</h5>
+                    <h5>${price} {currency}</h5>
                 </div>
                 :
                 <div onClick={handleClick} className="crypto-card-container">
@@ -60,7 +61,7 @@ export const CryptoCard = (
                         <img className='crypto-card-logo'src={logo}></img>
                         <h1>{name}</h1>
                     </div>
-                    <h5>${price} USD</h5>
+                    <h5>${price} {currency}</h5>
                     <button name='delete' className='delete-button' onClick={handleDelete}>
                         <img name='delete' src={trash} alt='trash'></img>
                     </button>
