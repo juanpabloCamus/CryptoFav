@@ -6,11 +6,12 @@ import NavBar from './components/NavBar/NavBar';
 function App() {
 
   const [favorites, setFavorites] = useState([])
+  console.log(favorites);
 
   return (
     <div className="App">
       <NavBar/>
-      <Modals/>
+      <Modals favorites={favorites} setFavorites={setFavorites}/>
       <h1>Favoritas</h1>
     </div>
   );
