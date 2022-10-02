@@ -13,14 +13,13 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
 
     useEffect(() => {
         async function getData() {
-            // let { data } = await axios.get(`https://api.cryptapi.io/btc/info/`);
-            // setInitalData([...initialData, data])
-
-            requiredCryptos.map(async c => {
-                let { data } = await axios.get(`https://api.cryptapi.io/${c}/info/`);
-                initialData.push(data)
-                setInitalData(initialData)
-            })
+            if (initialData.length < 4) {
+                requiredCryptos.map(async c => {
+                    let { data } = await axios.get(`https://api.cryptapi.io/${c}/info/`);
+                    initialData.push(data)
+                    setInitalData(initialData)
+                })
+            }
         }
         getData()
     }, [])
@@ -42,28 +41,30 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
 
     return (
         <div className='searcher-container'>
-            <form onSubmit={handleSearch}>
+            <form className='form' onSubmit={handleSearch}>
                 <input onChange={handleChange} value={search}></input>
                 <button type='submit'>Buscar</button>
             </form>
             {error ? <h4>Busqueda invalida</h4> : null}
-            {
-                initialData.map(c => 
-                    (
-                        <CryptoCard
-                            context = 'searcher'
-                            key={c.coin}
-                            ticker={c.ticker}
-                            name={c.coin}
-                            logo={c.logo}
-                            price={c.prices['USD']}
-                            openDetail={openDetail}
-                            closeSearcher={closeSearcher}
-                            setDetail={setDetail}
-                        />
+            <div className='cards-container'>
+                {
+                    initialData.map(c => 
+                        (
+                            <CryptoCard
+                                context = 'searcher'
+                                key={c.coin}
+                                ticker={c.ticker}
+                                name={c.coin}
+                                logo={c.logo}
+                                price={c.prices['USD']}
+                                openDetail={openDetail}
+                                closeSearcher={closeSearcher}
+                                setDetail={setDetail}
+                            />
+                        )
                     )
-                )
-            }
+                }
+            </div>
         </div>
     );
 }

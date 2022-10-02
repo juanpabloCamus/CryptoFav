@@ -1,12 +1,18 @@
 .navbarContainer{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    justify-content: space-between;
     align-items: center;
-    border:1px solid black;
+    border-bottom:1px solid black;
+    padding-left: 70px;
+    padding-right: 70px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .navbarContainer h1{
     margin: 8px;
+}
+
+.nav-logo{
+    max-width: 60px;
 }

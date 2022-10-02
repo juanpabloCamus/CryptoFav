@@ -28,13 +28,13 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
         )
     }
 
-    if (currentCrypto === {}) return <h1>Loading...</h1>
+    if (!currentCrypto.coin) return <h1>Loading...</h1>
 
     return (
-        <div>
+        <div className='carddetail-container' >
             <img src={currentCrypto.logo} className='currentcrypto-logo'></img>
             <h1>{currentCrypto.coin} ({currentCrypto.ticker})</h1>
-            <span>Price: {currentCrypto.prices?.USD}</span>
+            <span>{currentCrypto.prices?.USD} USD</span>
             <form onSubmit={handleAddFavorite}>
                 <input onChange={handleChange} type='number' placeholder='Cantidad'></input>
                 <button type='submit'>Añadir</button>

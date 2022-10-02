@@ -1,3 +1,14 @@
 .searcher-container{
     margin-top: 40px;
 }
+
+.cards-container{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form{
+    text-align: center;
+}

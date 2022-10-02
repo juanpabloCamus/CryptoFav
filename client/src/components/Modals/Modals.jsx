@@ -14,12 +14,12 @@ export const Modals = ({setFavorites, favorites}) => {
 
     return(
     <div>
-        <h2>Modales</h2>
-        <button onClick={openCryptoCard}>Modal 1 (CryptoCardDetail)</button>
+        <div className='button-container'>
+            <button className='search-button' onClick={openSearcher}>Añadir</button>
+        </div>
         <Modal isOpen={isOpenCryptoCard} closeModal={closeCryptoCard}>
             <CryptoCardDetail favorites={favorites} setFavorites={setFavorites} detail={detail}/>
         </Modal>
-        <button onClick={openSearcher}>Modal 2 (Searcher)</button>
         <Modal isOpen={isOpenSeacrher} closeModal={closeSearcher}>
             <Searcher setDetail={setDetail} closeSearcher={closeSearcher} openDetail={openCryptoCard}/>
         </Modal>

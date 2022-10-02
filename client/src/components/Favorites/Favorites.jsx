@@ -3,7 +3,7 @@ import './Favorites.css'
 
 function Favorites({favorites, setFavorites}) {
     
-    if(favorites.length === 0) return <h1>No hay favs</h1>
+    if(favorites.length === 0) return <h1>No hay favoritas</h1>
     
     return (
         <div className="favorites-container">

@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <NavBar/>
       <Modals favorites={favorites} setFavorites={setFavorites}/>
-      <h1>Favoritas</h1>
+      <h1 style={{textAlign:'center'}}>Favoritas</h1>
       <Favorites favorites={favorites} setFavorites={setFavorites}/>
     </div>
   );
