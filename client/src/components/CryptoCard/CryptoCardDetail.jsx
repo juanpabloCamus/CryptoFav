@@ -8,8 +8,19 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
     
     useEffect(()=> {
         if (detail) {
+            setCurrentCrypto({})
             axios.get(`https://api.cryptapi.io/${detail}/info/`)
-            .then((r) => setCurrentCrypto(r.data))
+            .then((r) => {
+                let currentFavs = JSON.parse(localStorage.getItem('Favorites'));
+                let isFavorite = currentFavs === null ? [] : currentFavs.filter(c => c.ticker === detail);
+                if (isFavorite.length === 0) {
+                    setCurrentCrypto(r.data)
+                } else {
+                    console.log('entre');
+                    console.log(isFavorite[0].amount);
+                    setCurrentCrypto({...r.data, amount: isFavorite[0].amount})
+                }
+            })
             .catch(e => console.log(e))
         }
     }, [detail])
@@ -26,6 +37,8 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
         setFavorites(
             [...favorites, newFav]
         )
+        setCurrentCrypto(newFav)
+        localStorage.setItem('Favorites', JSON.stringify([...favorites, newFav]))
     }
 
     if (!currentCrypto.coin) return <h1>Loading...</h1>
@@ -35,6 +48,9 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
             <img src={currentCrypto.logo} className='currentcrypto-logo'></img>
             <h1>{currentCrypto.coin} ({currentCrypto.ticker})</h1>
             <span>{currentCrypto.prices?.USD} USD</span>
+            {
+                currentCrypto.amount ? <span>Cantidad: {currentCrypto.amount} </span> : null
+            }
             <form onSubmit={handleAddFavorite}>
                 <input onChange={handleChange} type='number' placeholder='Cantidad'></input>
                 <button type='submit'>Añadir</button>

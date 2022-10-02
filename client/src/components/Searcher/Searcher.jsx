@@ -22,7 +22,7 @@ function Searcher({openDetail, closeSearcher, setDetail}) {
             }
         }
         getData()
-    }, [])
+    }, [error])
 
     const handleChange = (e) => {
         setSearch(e.target.value)

@@ -14,13 +14,15 @@ export const CryptoCard = (
         context
     }) => {
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         if (context === 'searcher') {
             setDetail(ticker)
             closeSearcher()
             openDetail()
         }
         else {
+            if (e.target.name === 'delete') return
+            setDetail()
             setDetail(ticker)
             openDetail() 
         }    
@@ -29,6 +31,7 @@ export const CryptoCard = (
     const handleDelete = () => {
         const filterFav = favorites.filter(c =>  c.coin !== name);
         setFavorites(filterFav)
+        localStorage.setItem('Favorites', JSON.stringify(filterFav))
     }
     
     return (
@@ -49,7 +52,7 @@ export const CryptoCard = (
                         <h1>{name}</h1>
                     </div>
                     <h5>{price}USD</h5>
-                    <button className='delete-button' onClick={handleDelete}>X</button>
+                    <button name='delete' className='delete-button' onClick={handleDelete}>X</button>
                 </div>
             }
         </>
