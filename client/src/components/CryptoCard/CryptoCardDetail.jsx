@@ -41,21 +41,28 @@ function CryptoCardDetail({detail, setFavorites, favorites}) {
         setCurrentCrypto(newFav)
         localStorage.setItem('Favorites', JSON.stringify(updateFavs))
     }
-
+    
     if (!currentCrypto.coin) return <Loader></Loader>
 
     return (
         <div className='carddetail-container' >
             <img src={currentCrypto.logo} className='currentcrypto-logo'></img>
             <h1>{currentCrypto.coin} ({currentCrypto.ticker})</h1>
-            <span>{currentCrypto.prices?.USD} USD</span>
-            {
-                currentCrypto.amount ? <span>Cantidad: {currentCrypto.amount} </span> : null
-            }
-            <form onSubmit={handleAddFavorite}>
-                <input onChange={handleChange} type='number' placeholder={`Cuanto ${currentCrypto.coin} tienes?`}></input>
+            <span className='span-price'>${currentCrypto.prices?.USD} USD</span>
+            <form className='amount-form' onSubmit={handleAddFavorite}>
+                <input onChange={handleChange} type='number' step="any" placeholder={`Cuanto ${currentCrypto.coin} tienes?`}></input>
                 <button type='submit'>Añadir</button>
             </form>
+            {
+                currentCrypto.amount ? 
+                <div>
+                    <h3 className='amount-spam'>
+                        Tienes: {currentCrypto.amount} {currentCrypto.coin} en tu cartera 
+                    </h3>
+                </div>
+                : 
+                <span className='amount-spam' >No has agregado {currentCrypto.coin} a tu cartera aun</span>
+            }
         </div>
     );
 }

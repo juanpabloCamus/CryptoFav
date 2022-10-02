@@ -5,5 +5,76 @@
 
 .carddetail-container{
     text-align: center;
-    margin-top: 200px;
+    margin-top: 150px;
+    background-color: aliceblue;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 100px 0px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.124);
+}
+
+.carddetail-container h1{
+    margin-top: 2px;
+}
+
+.span-price{
+    display: block;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.amount-spam{
+    margin-top: 10px;
+    display: block;
+    font-weight: 500;
+}
+
+.amount-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.amount-form input{
+    border: none;
+    height: 25px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.124);
+}
+
+.amount-form button{
+    background-color: #ee5656;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.amount-form button:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 3px 10px 0 rgba(0, 0, 0, 0.124);
+    background-color: #ee5656db;
 }
