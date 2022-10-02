@@ -46,7 +46,8 @@ function App() {
             <h1 className='favorites-title'>Mis Criptomonedas</h1>
             <img className='heart' src={heart} alt='heart'></img>
           </div>
-          <div>
+          <div className='select-container'>
+            <span>Moneda: </span>
             <select onChange={handleChange}>
               {
                 currencies.map(c => (

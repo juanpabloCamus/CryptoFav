@@ -8,10 +8,6 @@
     margin-top: 10px;
 }
 
-.favorites-title{
-    
-}
-
 .heart{
     max-width: 40px;
     max-height: 40px;
@@ -51,4 +47,25 @@
 
 .search-button:hover {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
+.select-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.select-container span{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.select-container select {
+    height: 30px;
+    width: 100px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
 }
