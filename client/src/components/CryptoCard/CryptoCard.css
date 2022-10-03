@@ -40,3 +40,19 @@
     font-size: 16px;
     margin-right: 30px;
 }
+
+
+@media (max-width:590px) {
+    .crypto-card-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+        font-size: 13px;
+        max-height: 140;
+    }
+    .crypto-card-container h5{
+        margin-right: 0px;
+        margin: 0px;
+    }
+}

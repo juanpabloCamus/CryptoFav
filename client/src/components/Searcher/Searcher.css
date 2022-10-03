@@ -42,3 +42,14 @@
     padding: 10px;
     border-radius: 10px;
 }
+
+@media (max-width:590px) {
+    .cards-container{
+        padding: 0px;
+        display: flex;
+    }
+
+    .form{
+        margin-bottom: 5px;
+    }
+}

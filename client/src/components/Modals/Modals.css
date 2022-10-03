@@ -35,3 +35,18 @@
     background-color: #fff;
     cursor: pointer;
 }
+
+@media (max-width:870px) {
+    .modal-container{
+        min-width: 300px;
+        min-height: 300px;
+        margin: 20px;
+    }
+}
+
+@media (max-width:590px) {
+    .modal-container{
+        min-width: 300px;
+        min-height: 200px;
+    }
+}

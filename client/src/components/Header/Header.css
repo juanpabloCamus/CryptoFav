@@ -21,3 +21,10 @@
 .nav-logo{
     max-width: 60px;
 }
+
+@media (max-width:690px) {
+    .navbarContainer{
+        display: flex;
+        justify-content: center;
+    }
+}

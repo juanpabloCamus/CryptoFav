@@ -83,3 +83,9 @@
     color: red;
     font-weight: 500;
 }
+
+@media (max-width:870px) {
+    .carddetail-container{
+        margin: 10px;
+    }
+}
