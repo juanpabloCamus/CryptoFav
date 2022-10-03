@@ -39,6 +39,7 @@ export const CryptoCard = ({
             const filterFav = favorites.filter(c =>  c.coin !== name);
             setFavorites(filterFav)
             localStorage.setItem('Favorites', JSON.stringify(filterFav))
+            setDetail('')
         }
         return
     }
