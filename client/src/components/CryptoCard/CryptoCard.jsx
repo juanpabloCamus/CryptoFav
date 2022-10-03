@@ -2,8 +2,7 @@ import './CryptoCard.css';
 import trash from '../../assets/trash.png';
 import Swal from 'sweetalert2';
 
-export const CryptoCard = (
-    {
+export const CryptoCard = ({
         openDetail,
         closeSearcher,
         setDetail,
@@ -47,7 +46,8 @@ export const CryptoCard = (
     return (
         <>
             {
-                context === 'searcher' ?
+                context === 'searcher' 
+                ?
                 <div onClick={handleClick} className="crypto-card-container">
                     <div className='title'>   
                         <img className='crypto-card-logo'src={logo}></img>

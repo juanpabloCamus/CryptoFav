@@ -9,7 +9,6 @@ function Searcher({openDetail, closeSearcher, setDetail, currency}) {
 
     const [initialData, setInitalData] = useState([]);
     const [currentData, setCurrentData] = useState([]);
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         async function getData() {
@@ -46,22 +45,22 @@ function Searcher({openDetail, closeSearcher, setDetail, currency}) {
             </form>
             <div className='cards-container'>
                 {
-                    currentData.map(c => 
-                        (
-                            <CryptoCard
-                                context = 'searcher'
-                                key={c.coin}
-                                ticker={c.ticker}
-                                name={c.coin}
-                                logo={c.logo}
-                                price={c.prices[currency]}
-                                openDetail={openDetail}
-                                closeSearcher={closeSearcher}
-                                setDetail={setDetail}
-                                currency = {currency}
-                            />
-                        )
+                currentData.map(c => 
+                    (
+                        <CryptoCard
+                            context = 'searcher'
+                            key={c.coin}
+                            ticker={c.ticker}
+                            name={c.coin}
+                            logo={c.logo}
+                            price={c.prices[currency]}
+                            openDetail={openDetail}
+                            closeSearcher={closeSearcher}
+                            setDetail={setDetail}
+                            currency = {currency}
+                        />
                     )
+                )
                 }
             </div>
         </div>

@@ -6,6 +6,7 @@ import Loader from '../Loader/Loader.jsx'
 function CryptoCardDetail({closeCryptoCard, currency, detail, setFavorites, favorites}) {
 
     const [currentCrypto, setCurrentCrypto] = useState({})
+    const [amount, setAmount] = useState(0)
     
     useEffect(()=> {
         if (detail) {
@@ -23,8 +24,6 @@ function CryptoCardDetail({closeCryptoCard, currency, detail, setFavorites, favo
             .catch(e => console.log(e))
         }
     }, [detail])
-
-    const [amount, setAmount] = useState(0)
 
     const handleChange = e => { 
         setAmount(e.target.value)
