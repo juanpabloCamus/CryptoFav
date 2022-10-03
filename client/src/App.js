@@ -9,7 +9,7 @@ import heart from './assets/heart.png'
 function App() {
 
   const currencies = [ 'USD', 'EUR', 'GBP', 'CAD', 'JPY', 'AED', 'DKK', 'BRL', 'CNY', 'HKD', 'INR', 'MXN', 'UGX', 'PLN', 'PHP', 'CZK', 'HUF', 'BGN', 'RON', 'LKR', 'TRY', 'ZAR', 'RUB' ]
-
+  
   const [favorites, setFavorites] = useState([])
   const [isOpenCryptoCard, openCryptoCard, closeCryptoCard] = useModal(false)
   const [isOpenSeacrher, openSearcher, closeSearcher] = useModal(false)

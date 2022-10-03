@@ -2,21 +2,23 @@ import { useEffect, useState } from 'react';
 import './Searcher.css';
 import axios from 'axios';
 import { CryptoCard } from '../CryptoCard/CryptoCard';
-import searchLogo from '../../assets/search.png'
 
-const requiredCryptos = ['btc', 'eth', 'ltc', 'trx']
+const requiredCryptos = ['btc', 'eth', 'ltc', 'trx', 'bch', 'xmr']
 
 function Searcher({openDetail, closeSearcher, setDetail, currency}) {
 
     const [initialData, setInitalData] = useState([]);
-    const [search, setSearch] = useState('');
-    
+    const [currentData, setCurrentData] = useState([]);
+    const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         async function getData() {
-            if (initialData.length < 4) {
+            if (initialData.length < 6) {
                 requiredCryptos.map(async c => {
                     let { data } = await axios.get(`https://api.cryptapi.io/${c}/info/`);
+                    currentData.push(data)
                     initialData.push(data)
+                    setCurrentData(initialData)
                     setInitalData(initialData)
                 })
             }
@@ -25,24 +27,26 @@ function Searcher({openDetail, closeSearcher, setDetail, currency}) {
     }, [])
 
     const handleChange = (e) => {
-        setSearch(e.target.value)
-    }
-
-    const handleSearch = async (e) => {
-        
+        let data = initialData;
+        let search = []
+        data.map(c => {
+            let name = c.coin
+            name = name.toLowerCase()
+            if (name.includes(e.target.value.toLowerCase())) {
+                search.push(c)
+            }
+        })
+        setCurrentData(search)
     }
 
     return (
         <div className='searcher-container'>
-            <form className='form' onSubmit={handleSearch}>
-                <input onChange={handleChange} value={search} placeholder='Example: Btc'></input>
-                <button type='submit'>
-                    <img className='search-logo' src={searchLogo} alt='search'></img>
-                </button>
+            <form className='form'>
+                <input onChange={handleChange} placeholder='Example: Btc'></input>
             </form>
             <div className='cards-container'>
                 {
-                    initialData.map(c => 
+                    currentData.map(c => 
                         (
                             <CryptoCard
                                 context = 'searcher'

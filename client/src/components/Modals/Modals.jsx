@@ -1,4 +1,3 @@
-import {useModal} from '../../hooks/useModal.js';
 import { Modal } from './Modal.jsx';
 import './Modals.css';
 import Searcher from '../Searcher/Searcher.jsx';

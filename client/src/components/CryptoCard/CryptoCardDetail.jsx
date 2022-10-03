@@ -42,7 +42,7 @@ function CryptoCardDetail({currency, detail, setFavorites, favorites}) {
         localStorage.setItem('Favorites', JSON.stringify(updateFavs))
     }
     
-    if (!currentCrypto.coin) return <Loader></Loader>
+    if (!currentCrypto.coin) return <Loader/>
 
     return (
         <div className='carddetail-container' >
