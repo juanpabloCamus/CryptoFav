@@ -1,4 +1,4 @@
-import './NavBar.css';
+import './Header.css';
 import logo from '../../assets/rocket.png'
 
 function NavBar() {

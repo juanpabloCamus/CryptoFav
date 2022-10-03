@@ -13,6 +13,11 @@
     margin: 8px;
 }
 
+.navbarContainer span{
+    font-size: 18px;
+    font-weight: 500;
+}
+
 .nav-logo{
     max-width: 60px;
 }

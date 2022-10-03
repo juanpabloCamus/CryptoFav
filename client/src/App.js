@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Favorites from './components/Favorites/Favorites';
 import { Modals } from './components/Modals/Modals';
-import NavBar from './components/NavBar/NavBar';
+import Header from './components/Header/Header';
 import { useModal } from './hooks/useModal';
 import heart from './assets/heart.png'
 
@@ -22,7 +22,7 @@ function App() {
   
   return (
     <div className="App">
-      <NavBar/>
+      <Header/>
       <Modals 
         favorites={favorites} 
         setFavorites={setFavorites}

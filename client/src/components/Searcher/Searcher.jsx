@@ -42,7 +42,7 @@ function Searcher({openDetail, closeSearcher, setDetail, currency}) {
     return (
         <div className='searcher-container'>
             <form className='form'>
-                <input onChange={handleChange} placeholder='Example: Btc'></input>
+                <input onChange={handleChange} placeholder='Example: Bitcoin'></input>
             </form>
             <div className='cards-container'>
                 {

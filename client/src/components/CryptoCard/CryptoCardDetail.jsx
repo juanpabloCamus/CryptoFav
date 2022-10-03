@@ -3,7 +3,7 @@ import './CryptoCardDetail.css';
 import axios from 'axios';
 import Loader from '../Loader/Loader.jsx'
 
-function CryptoCardDetail({currency, detail, setFavorites, favorites}) {
+function CryptoCardDetail({closeCryptoCard, currency, detail, setFavorites, favorites}) {
 
     const [currentCrypto, setCurrentCrypto] = useState({})
     
@@ -40,6 +40,8 @@ function CryptoCardDetail({currency, detail, setFavorites, favorites}) {
         )
         setCurrentCrypto(newFav)
         localStorage.setItem('Favorites', JSON.stringify(updateFavs))
+        setAmount(0)
+        closeCryptoCard()
     }
     
     if (!currentCrypto.coin) return <Loader/>
