@@ -7,6 +7,7 @@ function CryptoCardDetail({closeCryptoCard, currency, detail, setFavorites, favo
 
     const [currentCrypto, setCurrentCrypto] = useState({})
     const [amount, setAmount] = useState(0)
+    const [error, setError] = useState(false)
     
     useEffect(()=> {
         if (detail) {
@@ -31,15 +32,20 @@ function CryptoCardDetail({closeCryptoCard, currency, detail, setFavorites, favo
 
     const handleAddFavorite = e => {
         e.preventDefault()
+
+        if (amount < 0) return setError(true)
+
         let newFav = {...currentCrypto, amount}
         let updateFavs = favorites.filter(f => f.ticker !== detail);
         updateFavs = [...updateFavs, newFav]
+
         setFavorites(
             updateFavs
         )
         setCurrentCrypto(newFav)
         localStorage.setItem('Favorites', JSON.stringify(updateFavs))
         setAmount(0)
+        setError(false)
         closeCryptoCard()
     }
     
@@ -64,6 +70,7 @@ function CryptoCardDetail({closeCryptoCard, currency, detail, setFavorites, favo
                 : 
                 <span className='amount-spam' >No has agregado {currentCrypto.coin} a tu cartera aun</span>
             }
+            {error ? <span className='add-error'>No puedes agregar numeros negativos</span> : null}
         </div>
     );
 }
